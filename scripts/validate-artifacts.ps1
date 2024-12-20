@@ -5,7 +5,7 @@ param(
 
 
 # default script values 
-$taskName = "task4"
+$taskName = "task2"
 
 $artifactsConfigPath = "$PWD/artifacts.json"
 $resourcesTemplateName = "exported-template.json"
@@ -56,9 +56,6 @@ if ($virtualMachine.location -eq "uksouth" ) {
 
 if (-not $virtualMachine.zones) { 
     Write-Output "`u{2705} Checked Virtual Machine availability zone - OK."
-} else {
-    Write-Output `u{1F914}
-    throw "Virtual machine has availibility zone set. Please re-deploy VM with 'No infrastructure redundancy' availability option and try again." 
 }
 
 if (-not $virtualMachine.properties.securityProfile) { 
@@ -107,6 +104,13 @@ if ($pip) {
 } else {
     Write-Output `u{1F914}
     throw "Unable to find Public IP address resouce. Please create a Public IP resouce (Basic SKU, dynamic IP allocation) and try again."
+}
+
+if (($pip.sku.name -eq "Basic" ) -and ($pip.properties.publicIPAllocationMethod -eq "Dynamic")) { 
+    Write-Output "`u{2705} Checked Public IP SKU and allocation method - OK"
+} else { 
+    Write-Output `u{1F914}
+    Write-Warning "Unable to verify Public IP SKU and allocation method. Please check if public IP using 'Basic' SKU and dynamic IP allocation method."
 }
 
 if ($pip.properties.dnsSettings.domainNameLabel) { 
@@ -172,13 +176,13 @@ if ($httpNsgRule)  {
     throw "Unable to fing network security group rule which allows HTTP connection. Please check if you configured VM Network Security Group to allow connections on 8080 TCP port and try again."
 }
 
-$passwordResetExtention = ( $TemplateObject.resources | Where-Object {($_.type -eq "Microsoft.Compute/virtualMachines/extensions") -and ($_.properties.type -eq "VMAccessForLinux") } ) 
-if ($passwordResetExtention) {
-    Write-Output "`u{2705} Checked if VM admin password was reset - OK"
+$response = (Invoke-WebRequest -Uri "http://$($pip.properties.dnsSettings.fqdn):8080/api/" -ErrorAction SilentlyContinue) 
+if ($response) { 
+    Write-Output "`u{2705} Checked if the web application is running - OK"
 } else {
-    Write-Output `u{1F914}
-    throw "Unable to verify that VM admin password was ever reset on the virtual machine. Please reset VM admin password and try again. "
+    throw "Unable to get a reponse from the web app. Please make sure that the VM and web application are running and try again."
 }
+
 
 Write-Output ""
 Write-Output "`u{1F973} Congratulations! All tests passed!"
