@@ -4,7 +4,7 @@ param(
 )
 
 
-# default script values 
+# default script values
 $taskName = "task4"
 
 $artifactsConfigPath = "$PWD/artifacts.json"
@@ -95,6 +95,7 @@ if ($virtualMachine.properties.osProfile.linuxConfiguration.disablePasswordAuthe
     throw "Virtual Machine uses password authentification. Please re-deploy VM using SSH key authentification for the OS admin user and try again. "
 }
 
+#test
 
 $pip = ( $TemplateObject.resources | Where-Object -Property type -EQ "Microsoft.Network/publicIPAddresses")
 if ($pip) {

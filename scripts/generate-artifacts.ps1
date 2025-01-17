@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
     [string]$ArtifactsStorageAccountName='matestorage123'
 )
-
+# test
 # default script values
 $rgName = "mate-azure-task-2"
 $taskName = "task4"
