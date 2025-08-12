@@ -1,0 +1,19 @@
+
+ResourceGroupName : mate-resources
+Location          : eastus
+ProvisioningState : Succeeded
+Tags              : 
+ResourceId        : /subscriptions/90583dc9-ee23-4fad-84de-95d37c7fb376/resourceGroups/mate-resources
+
+ResourceGroupName : mate-azure-task-2
+Location          : uksouth
+ProvisioningState : Succeeded
+Tags              : 
+ResourceId        : /subscriptions/90583dc9-ee23-4fad-84de-95d37c7fb376/resourceGroups/mate-azure-task-2
+
+ResourceGroupName : NetworkWatcherRG
+Location          : uksouth
+ProvisioningState : Succeeded
+Tags              : 
+ResourceId        : /subscriptions/90583dc9-ee23-4fad-84de-95d37c7fb376/resourceGroups/NetworkWatcherRG
+

@@ -1,0 +1,42 @@
+# SSH Connection Log - Azure VM Password Reset Task
+# This log shows the SSH connection process after resetting the VM password
+
+# This line shows login with new username 'newadmin' (password reset successful)
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-1030-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information of Tue Aug 12 10:33:06 UTC 2025
+
+  System load:  0.01              Processes:             121
+  Usage of /:   7.7% of 28.89GB   Users logged in:       1
+  Memory usage: 41%               IPv4 address for eth0: 10.0.0.4
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+# This shows password authentication (not SSH key) - user successfully authenticated
+Last login: Tue Aug 12 10:23:38 2025 from 77.239.162.133
+
+# Login successful - user now has shell access with prompt showing 'newadmin@task-2-vm'
+[?2004h]0;newadmin@task-2-vm: ~[01;32mnewadmin@task-2-vm[00m:[01;34m~[00m$ Stop-AzVM -ResourceGroupName "mate-azure-task-2" -Name "task-2-vm" -Force | Out-File vm_stop.log
+[?2004l
+Out-File: command not found
+Stop-AzVM: command not found
+[?2004h]0;newadmin@task-2-vm: ~[01;32mnewadmin@task-2-vm[00m:[01;34m~[00m$ Connection to mate-vm.axdbd6f9d7cjfxgd.uksouth.sysgen.cloudapp.azure.com closed by remote host.
+Connection to mate-vm.axdbd6f9d7cjfxgd.uksouth.sysgen.cloudapp.azure.com closed.
