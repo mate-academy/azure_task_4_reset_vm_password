@@ -36,13 +36,13 @@ If you are a Windows user, before running this command, please also run the foll
 In this task, you need to perform the following steps: 
 
 
-1. Use the infrastructure you created in the [previous task](https://github.com/mate-academy/azure_task_2_create_a_vm). Reset the VM admin password on the virtual machine you created earlier: 
+1. Use the infrastructure you created in the [previous task](https://github.com/mate-academy/azure_task_2_create_a_vm). Reset the VM admin password on the virtual machine you created earlier:
 
-    - use a username that is different from the one you used to create the VM 
-    
-    - use password authentification for the user. 
+    - use a username that is different from the one you used to create the VM
 
-    After the password reset, connect to the VM with the new credentials using SSH to test whether the password has been reset. 
+    - use password authentification for the user.
+
+    After the password reset, connect to the VM with the new credentials using SSH to test whether the password has been reset.
 
 2. Run artifacts generation script `scripts/generate-artifacts.ps1`
 
