@@ -1,0 +1,43 @@
+**********************
+PowerShell transcript start
+Start time: 20251020025603
+Username: DESKTOP-J7UUF0R\Макс
+RunAs User: DESKTOP-J7UUF0R\Макс
+Configuration Name: 
+Machine: DESKTOP-J7UUF0R (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -WorkingDirectory ~
+Process ID: 12576
+PSVersion: 7.5.3
+PSEdition: Core
+GitCommitId: 7.5.3
+OS: Microsoft Windows 10.0.19045
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\docs\task4_generate_output.txt
+PS D:\devops\azure_task_4_reset_vm_password> .\scripts\generate-artifacts.ps1    # 👉 тут у логи потрапить “upload + SAS generated”
+Running initial validation
+Azure Powershell module is installed, account is connected.
+Checking if storage account exists
+Storage account found
+Checking if artifacts storage container exists
+Storage container for artifacts found!
+Generating artifacts
+Checking if temp folder exists
+Exporting resources template
+
+Path
+----
+D:\devops\azure_task_4_reset_vm_password\temp\exported-template.json
+Uploading resources template
+Generating a SAS token for the template artifact
+Updating artifacts config
+
+PS D:\devops\azure_task_4_reset_vm_password> Stop-Transcript
+**********************
+PowerShell transcript end
+End time: 20251020025636
+**********************

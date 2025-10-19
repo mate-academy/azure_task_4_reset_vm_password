@@ -1,0 +1,7 @@
+
+Code          : PowerState/deallocated
+Level         : Info
+DisplayStatus : VM deallocated
+Message       : 
+Time          : 
+
