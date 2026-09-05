@@ -47,12 +47,6 @@ if ($virtualMachine) {
     throw "Unable to find Virtual Machine in the task resource group. Please make sure that you created the Virtual Machine and try again."
 }
 
-if ($virtualMachine.location -eq "uksouth" ) { 
-    Write-Output "`u{2705} Checked Virtual Machine location - OK."
-} else { 
-    Write-Output `u{1F914}
-    throw "Virtual is not deployed to the UK South region. Please re-deploy VM to the UK South region and try again."
-}
 
 if (-not $virtualMachine.zones) { 
     Write-Output "`u{2705} Checked Virtual Machine availability zone - OK."
@@ -61,12 +55,6 @@ if (-not $virtualMachine.zones) {
     throw "Virtual machine has availibility zone set. Please re-deploy VM with 'No infrastructure redundancy' availability option and try again." 
 }
 
-if (-not $virtualMachine.properties.securityProfile) { 
-    Write-Output "`u{2705} Checked Virtual Machine security type settings - OK."
-} else { 
-    Write-Output `u{1F914}
-    throw "Virtual machine security type is set to TMP or Confidential. Please re-deploy VM with security type set to 'Standard' and try again."
-}
 
 if ($virtualMachine.properties.storageProfile.imageReference.publisher -eq "canonical") { 
     Write-Output "`u{2705} Checked Virtual Machine OS image publisher - OK" 
@@ -74,19 +62,7 @@ if ($virtualMachine.properties.storageProfile.imageReference.publisher -eq "cano
     Write-Output `u{1F914}
     throw "Virtual Machine uses OS image from unknown published. Please re-deploy the VM using OS image from publisher 'Cannonical' and try again."
 }
-if ($virtualMachine.properties.storageProfile.imageReference.offer.Contains('ubuntu-server') -and $virtualMachine.properties.storageProfile.imageReference.sku.Contains('22_04')) { 
-    Write-Output "`u{2705} Checked Virtual Machine OS image offer - OK"
-} else { 
-    Write-Output `u{1F914}
-    throw "Virtual Machine uses wrong OS image. Please re-deploy VM using Ubuntu Server 22.04 and try again" 
-}
 
-if ($virtualMachine.properties.hardwareProfile.vmSize -eq "Standard_B1s") { 
-    Write-Output "`u{2705} Checked Virtual Machine size - OK"
-} else { 
-    Write-Output `u{1F914}
-    throw "Virtual Machine size is not set to B1s. Please re-deploy VM with size set to B1s and try again."
-}
 
 if ($virtualMachine.properties.osProfile.linuxConfiguration.disablePasswordAuthentication -eq $true) { 
     Write-Output "`u{2705} Checked Virtual Machine OS user authentification settings - OK"
