@@ -3,7 +3,6 @@ param(
     [bool]$DownloadArtifacts=$true
 )
 
-
 # default script values 
 $taskName = "task4"
 
