@@ -12,7 +12,7 @@ Before completing any task in the module, make sure that you followed all the st
 
 3. In the `mate-resources` resource group, create a storage account (any name) and a `task-artifacts` container.
 
-4. Install [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4) on your computer. All tasks in this module use PowerShell 7. To run it in the terminal, execute the following command: 
+4. Install [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4) on your computer. All tasks in this module use PowerShell 7. To run it in the terminal, execute the following command:
     ```
     pwsh
     ```
